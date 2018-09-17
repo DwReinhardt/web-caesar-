@@ -27,8 +27,12 @@ form = """
     <body>
         <form action="" method="post">
             <label for="rot"> Rotate by: </label>
-            <input id="rot" type="text" value="0" /><br>
-            <textarea name="text" form="" ></textarea><br>
+            <input type="text" name="rot" value="0" />
+
+            <br>
+            <textarea type="text" name="text"></textarea>
+            
+            <br>
             <input type="submit" />
         </form>
     </body>
@@ -38,10 +42,10 @@ form = """
 @app.route("/", methods=['post'])
 
 def encrypt():
-    text = request.form.text #['text']
-    rot = request.form.rot #['rot']
+    text = request.form['text'] #['text']
+    rot = request.form['rot']   #['rot']
     rotate = int(rot)
-    encrypted_msg = caesar.rotate_string(text, rotate)
+    encrypted_msg = rotate_string(text, rotate)
     return f"<h1> Your encrypted message is: " + encrypted_msg + "</h1>"
 
 @app.route("/")
