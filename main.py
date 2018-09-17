@@ -41,8 +41,8 @@ def encrypt():
     text = request.form.text #['text']
     rot = request.form.rot #['rot']
     rotate = int(rot)
-    encrypted_msg = caesar.rotate_string(text, rot)
-    return "<h1> Your encrypted message is: " + encrypted_msg + "</h1>"
+    encrypted_msg = caesar.rotate_string(text, rotate)
+    return f"<h1> Your encrypted message is: " + encrypted_msg + "</h1>"
 
 @app.route("/")
 def index():
